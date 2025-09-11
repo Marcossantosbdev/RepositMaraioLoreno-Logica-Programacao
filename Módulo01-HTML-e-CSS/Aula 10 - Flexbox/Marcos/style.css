@@ -1,0 +1,21 @@
+#container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around; /*Controla a quebra de linha*/
+    width: 50vw;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 60px;
+}
+
+.item {
+    flex-basis: 10px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
