@@ -1,0 +1,15 @@
+Neste desafio deverá desenvolver uma aplicação simples usando, HTML, CSS e JavaScript para gerenciar o cadastro de alunos e suas notas(CRUD).
+O objetivo é colocar em prática tudo o que aprendemos em até aqui sobre arrays, objetos, condições, repetição e manipulação do DOM.
+
+
+A aplicação deve permitir:
+* Cadastrar alunos(create) informando nome e data(read)
+* Exibir os alunos cadastrados em uma linha dinâmica na tela.(read responsivo)
+* Destacar os alunos aprovados(notas=>7) em verde e os reprovados em vermelho.
+* Oferecer a opção de filtrar apenas os aprovados ou mostrar todos novamente.
+
+
+<!--Estrtutura sugerida--!>
+HTML: campos de entrada(nome e nota), botoões de ação e área para exibir os alunos.
+CSS: estilos básicos para diferenciar aprovados e reprovados.
+JavaScript: lógica para cadastrar os alunos em array de objetos, exibir a lista na tela, aplicar filtros e atualizar o DOM.
