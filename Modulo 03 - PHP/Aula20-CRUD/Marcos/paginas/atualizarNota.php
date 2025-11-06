@@ -63,8 +63,43 @@
                                 "cc" => "CIÊNCIAS DA COMPUTAÇÃO"
                             ];
 
+                            // CTRL+D após seleção para selecionar mais uma letra ou palavra repetida de uma vez
+
                             $nomeCurso = $cursos[$curso];
                             echo "<h2 style='text-align:center'$nomeCurso</h2>";
+
+                            echo "<form action='processaNota.php' method='post' id='form-nota'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Sobrenome</th>
+                                            <th>Nota Atividade</th>
+                                            <th>Nota Prova</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>;
+
+                                    while ($row = $resultado->fetch_assoc()){
+                                        
+                                    echo "
+                                        <tr>
+                                            <td>{$row['id']}</td>
+                                            <td>{$row['nome']}</td>
+                                            <td>{$row['sobrenome']}</td>
+                                            <td><input type='number' name='nota_atividade'[{$row['id']}]' required'></td>
+                                            <td><input type='number' name='nota_prova'[{$row['id']}]' required'></td>
+                                        </tr>
+                                                                ";
+                                    }
+
+                                    echo "</tbody>
+                                        </table>
+                                        <input type'submit' value='Enviar'>
+                                    </form>";
+
+                            ";
 
                         } else {
                             echo "<div class='mensagem erro'> Curso sem aluno cadastrado</div>";
