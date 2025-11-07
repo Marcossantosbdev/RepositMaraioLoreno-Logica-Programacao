@@ -21,9 +21,9 @@
     <main>
 
         <section id="containerSection">
-            <form action="atualizarNota" method="post">
+            <form action="atualizarNota.php" method="post">
                 <select name="curso" id="curso" class="estilo">
-                    <option value="ads">Analisee Desenvolvimento de Sistema</option>
+                    <option value="ads">Analise e Desenvolvimento de Sistema</option>
                     <option value="es">Engenharia de Software</option>
                     <option value="si">Sistema da Informação</option>
                     <option value="cc">Ciências da Computação</option>
@@ -50,6 +50,58 @@
 
                         $stmt->bind_param("s", $curso);
                         $stmt->execute();
+                        $resultado = $stmt->get_result();
+                        
+                        if ($resultado->num_rows > 0) {
+                            
+                            $cursos = [
+
+                               "ads" => "ANÁLISE E DESENVOLVIMENTO DE SISTEMAS",
+                               "es" => "ENGENHARIA DE SOFTWARE",
+                               "si" => "SISTEMAS DA INFORMAÇÃO",
+                               "cc" => "CIÊNCIA DA COMPUTAÇÃO"  
+                            ];
+
+                            $nomeCurso = $cursos[$curso];
+                            echo "<h2 style='text-align:center'>$nomeCurso</h2>";
+
+                            echo "<form action='processaNota.php' method='post' id='form-nota'>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Nota Atividades</th>
+                <th>Nota Prova</th>
+            </tr>
+        </thead>
+
+        <tbody>";
+
+        while ($row = $resultado->fetch_assoc()) {
+            
+
+            echo "
+                        <tr>
+                <td>{$row['id']}</td>
+                <td>{$row['nome']}</td>
+                <td>{$row['sobrenome']}</td>
+                <td><input type='number' name='nota_atividade[{$row['id']}]' required></td>
+                <td><input type='number' name='nota_prova[{$row['id']}]' required></td>
+            </tr>
+            ";
+            }
+            echo "
+        </tbody>
+    </table>
+    <input type='submit' value='Enviar'>
+</form>";
+
+
+                        } else {
+                            echo "<div class= 'mensagem erro'>O curso não possui alunos cadastrados</div>";
+                        }
 
                     }
 
