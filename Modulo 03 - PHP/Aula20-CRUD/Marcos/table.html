@@ -1,0 +1,26 @@
+<form action="processaNota.php" method="post" id="form-nota">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Nota Atividade</th>
+                <th>Nota Prova</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>{$row['id']}</td>
+                <td>{$row['nome']}</td>
+                <td>{$row['sobrenome']}</td>
+                <td><input type='number' name='nota_atividade'[{$row['id']}]' required'></td>
+                <td><input type='number' name='nota_prova'[{$row['id']}]' required'></td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+</form>
